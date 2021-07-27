@@ -1,6 +1,6 @@
 @font-face {
     font-family: "ClashRoyale";
-    src: url("C:\Users\Alex\Desktop\React\randomplays\src\fonts\clashRoyale.ttf");
+    src: url("./fonts/clashRoyale.ttf");
 }
 
 .App {

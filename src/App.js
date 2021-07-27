@@ -16,6 +16,7 @@ function App() {
   var   sortArray     = [];
   var   cont          = 0;
   var   avg           = 0; 
+
   //Importing images
   const importAll = () => {
     let r = require.context('./img/clashRoyale', false, /\.png/);
@@ -59,6 +60,7 @@ function App() {
   useEffect(() => {
     generateDeck();
   }, [])
+  
   return (
     <div className="App">
       <header className="App-header p-5">

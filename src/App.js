@@ -17,7 +17,7 @@ function App() {
   var   cont          = 0;
   var   avg           = 0; 
 
-  //Importing images
+  //Importing images to webpack
   const importAll = () => {
     let r = require.context('./img/clashRoyale', false, /\.png/);
     let images = {};
@@ -26,22 +26,23 @@ function App() {
   }
   const images = importAll()
 
+  //Function that generate an array with 8 different index ex: [1,5,3,2,8,9,3,4] from 0 to the total cards on the game
   const generateDeck = () => {
     cont        = 0;
     cardsIndex  = [];
     cardsElixir = [];
+    //Generate random index numbers
     for (let i = 0; i < 8; i++) { 
       const x = Math.floor(Math.random() * (cardsData.length));
       cardsIndex.push(x);
     }
-
+    //Checks if exists duplicate index, if so, it generate another array
     sortArray = cardsIndex.sort()
     for (let e = 0; e < sortArray.length; e++) {
       if (sortArray[e] === sortArray[e+1]){
         cont++;
       }
     }
-
     if(cont > 0){
       generateDeck()
     }else{
@@ -50,6 +51,7 @@ function App() {
     }
   }
   
+  //Function that calculate the average cost of elixir (each card has his own elixir cost)
   const calculateElixir = () => {
     cardsIndex.map(card => cardsElixir.push(cardsData[card].elixir));
     let sum = cardsElixir.reduce((previous, current) => current += previous);
@@ -57,6 +59,7 @@ function App() {
     setElixirCosts(Math.round(avg * 10) / 10);
   }
   
+  //Generate a deck when app load
   useEffect(() => {
     generateDeck();
   }, [])

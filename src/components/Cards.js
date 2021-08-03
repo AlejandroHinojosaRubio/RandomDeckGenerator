@@ -5,7 +5,7 @@ const Cards = ({ images, cards, cardsData}) => {
         <div className="container">
                 {cards.map(card => 
                     <div>
-                        <img height="220px" width="200px" src={images[cardsData[card].url].default} alt={cardsData[card].name} />
+                        <img className={"img-fluid"} height="220px" width="200px" src={images[cardsData[card].url].default} alt={cardsData[card].name} />
                     </div>
                     )
                 }

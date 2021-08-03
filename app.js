@@ -9,3 +9,5 @@ app.get('/', function (req, res) {
 });
 
 app.listen(9000);
+
+console.log("App listening on port: 9000")
